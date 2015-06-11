@@ -86,7 +86,7 @@ require_brew findutils
 #install ringojs
 #install narwhal
 
-# Install other useful binaries
+# Install other useful binaries 
 require_brew ack
 # Beanstalk http://kr.github.io/beanstalkd/
 #require_brew beanstalkd
@@ -124,10 +124,10 @@ require_brew imagesnap
 require_brew jq
 # http://maven.apache.org/
 require_brew maven
-require_brew memcached
-require_brew nmap
-require_brew node
-require_brew redis
+# require_brew memcached
+# require_brew nmap
+# require_brew node #since NVM is handling this
+# require_brew redis
 # better/more recent version of screen
 require_brew homebrew/dupes/screen
 require_brew tig
@@ -155,52 +155,53 @@ brew tap caskroom/versions > /dev/null 2>&1
 
 # cloud storage
 #require_cask amazon-cloud-drive
-require_cask box-sync
+#require_cask box-sync
 #require_cask dropbox
 #require_cask evernote
 #require_cask skydrive
-
+ 
 # communication
-#require_cask adium
-require_cask slack
-
-require_cask caffeine
+require_cask hipchat
+# require_cask caffeine
 
 # tools
 #require_cask comicbooklover
 require_cask diffmerge
 #require_cask flash-player
-require_cask github
+#require_cask github
 require_cask gpgtools
-require_cask ireadfast
+#require_cask ireadfast
 require_cask iterm2
 #require_cask macvim
 require_cask sizeup
 #require_cask simple-comic
 #require_cask sketchup
 
-require_cask atom
-apm install linter
-apm install linter-eslint
-apm install atom-beautify
+# require_cask atom
+# apm install linter
+# apm install linter-eslint
+# apm install atom-beautify
 
-require_cask the-unarchiver
-#require_cask transmission
-require_cask vlc
-require_cask xquartz
+# require_cask the-unarchiver
+# require_cask transmission
+# require_cask vlc
+# require_cask xquartz
 
 # development browsers
-require_cask breach
-require_cask firefox
-#require_cask firefox-aurora
 require_cask google-chrome
-require_cask google-chrome-canary
-require_cask torbrowser
+require_cask firefox
+
+# require_cask breach
+# require_cask firefox-aurora
+# require_cask google-chrome-canary
+# require_cask torbrowser
 
 # virtal machines
 require_cask virtualbox
+require_cask vagrant
+require_cask chefdk
+
 # chef-dk, berkshelf, etc
-#require_cask chefdk
 # vagrant for running dev environments using docker images
 #require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
 
@@ -233,8 +234,8 @@ sudo touch /Private/var/vm/sleepimage;ok
 running "…and make sure it can’t be rewritten"
 sudo chflags uchg /Private/var/vm/sleepimage;ok
 
-#running "Disable the sudden motion sensor as it’s not useful for SSDs"
-# sudo pmset -a sms 0;ok
+running "Disable the sudden motion sensor as it’s not useful for SSDs"
+sudo pmset -a sms 0;ok
 
 ################################################
 # Optional / Experimental                      #
@@ -399,7 +400,6 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;ok
 running "Disable smart dashes as they’re annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false;ok
 
-
 ###############################################################################
 bot "Trackpad, mouse, keyboard, Bluetooth accessories, and input"
 ###############################################################################
@@ -454,7 +454,8 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0;ok
 
 running "Save screenshots to the desktop"
-defaults write com.apple.screencapture location -string "${HOME}/Desktop";ok
+mkdir -p "${HOME}/Pictures/Screenshots"
+defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots";ok
 
 running "Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)"
 defaults write com.apple.screencapture type -string "png";ok
@@ -868,31 +869,22 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 bot "NPM Globals..."
 ###############################################################################
 
-require_npm antic
+require_npm yo
 require_npm bower
-# http://ionicframework.com/
-require_npm cordova
-require_npm ionic
-# https://github.com/markdalgleish/bespoke.js
-require_npm generator-bespoke
 require_npm grunt
 require_npm gulp
 require_npm jshint
 # http://devo.ps/blog/goodbye-node-forever-hello-pm2/
 require_npm pm2
-require_npm prettyjson
-require_npm supervisor
 # https://github.com/sindresorhus/trash
 require_npm trash
 # https://github.com/MrRio/vtop
 require_npm vtop
-require_npm yo
 
 ###############################################################################
 bot "Ruby Gems..."
 ###############################################################################
 require_gem git-up
-
 
 ###############################################################################
 # Kill affected applications                                                  #
