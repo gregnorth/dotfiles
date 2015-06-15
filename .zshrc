@@ -35,6 +35,3 @@ unsetopt correct
 export PATH="/Users/"$(whoami)"/.rbenv/shims:${PATH}"
 source "/usr/local/Cellar/rbenv/0.4.0/libexec/../completions/rbenv.zsh"
 rbenv rehash 2>/dev/null
-
-# run fortune on new terminal :)
-fortune

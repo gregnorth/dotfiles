@@ -65,19 +65,19 @@ running "replacing items in .gitconfig with your info ($COL_YELLOW$fullname, $em
 
 # test if gnu-sed or osx sed
 
-sed -i 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig > /dev/null 2>&1 | true
+sed -i 's/__NAME__/'$firstname' '$lastname'/' .gitconfig > /dev/null 2>&1 | true
 if [[ ${PIPESTATUS[0]} != 0 ]]; then
   echo
   running "looks like you are using OSX sed rather than gnu-sed, accommodating"
-  sed -i '' 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig;
-  sed -i '' 's/adam.eivy@disney.com/'$email'/' .gitconfig;
-  sed -i '' 's/atomantic/'$githubuser'/' .gitconfig;
+  sed -i '' 's/__NAME__/'$firstname' '$lastname'/' .gitconfig;
+  sed -i '' 's/__EMAIL/'$email'/' .gitconfig;
+  sed -i '' 's/__USER__/'$githubuser'/' .gitconfig;
   sed -i '' 's/antic/'$(whoami)'/g' .zshrc;ok
 else
   echo
   bot "looks like you are already using gnu-sed. woot!"
-  sed -i 's/adam.eivy@disney.com/'$email'/' .gitconfig;
-  sed -i 's/atomantic/'$githubuser'/' .gitconfig;
+  sed -i 's/__EMAIL/'$email'/' .gitconfig;
+  sed -i 's/__USER__/'$githubuser'/' .gitconfig;
   sed -i 's/antic/'$(whoami)'/g' .zshrc;ok
 fi
 

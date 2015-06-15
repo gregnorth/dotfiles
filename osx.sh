@@ -173,7 +173,7 @@ require_cask gpgtools
 #require_cask ireadfast
 require_cask iterm2
 #require_cask macvim
-require_cask sizeup
+#require_cask sizeup
 #require_cask simple-comic
 #require_cask sketchup
 
@@ -853,17 +853,17 @@ bot "Google Chrome & Google Chrome Canary"
 
 running "Allow installing user scripts via GitHub Gist or Userscripts.org"
 defaults write com.google.Chrome ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
-defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*";ok
+# defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*";ok
 
-###############################################################################
-bot "SizeUp.app"
-###############################################################################
-
-running "Start SizeUp at login"
-defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
-
-running "Don’t show the preferences window on next start"
-defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
+# ###############################################################################
+# bot "SizeUp.app"
+# ###############################################################################
+#
+# running "Start SizeUp at login"
+# defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
+#
+# running "Don’t show the preferences window on next start"
+# defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 
 ###############################################################################
 bot "NPM Globals..."
